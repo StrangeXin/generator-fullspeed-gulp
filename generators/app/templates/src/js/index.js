@@ -15,13 +15,13 @@ apiUrl = 'https://xxx.yyy.com/'; //生产接口地址
 apiUrl = '/api/'; //本地开发接口地址，配合代理
 // @endif
 
-$.ajax({
-  url: apiUrl + 'nocdn/apitest/index.php',
-  type: 'get',
-  success: function (e) {
-    console.log(e)
-  }
-})
+// $.ajax({
+//   url: apiUrl + 'nocdn/apitest/index.php',
+//   type: 'get',
+//   success: function (e) {
+//     console.log(e)
+//   }
+// })
 
 $(function () {
   let data = {

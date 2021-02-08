@@ -54,21 +54,21 @@ function up_ftp() {
 }
 
 //本地开发静态服务器
-const { createProxyMiddleware } = require('http-proxy-middleware') //本地开发代理跨域请求插件
-const proxy = createProxyMiddleware(['/api'], {
-  target: 'https://xxx.yyy.com',  //后端接口域名
-  changeOrigin: true,
-  pathRewrite: {
-    '/api': '' //重写地址，配合接口地址定义
-  }
-}) //本地代理配置
+// const { createProxyMiddleware } = require('http-proxy-middleware') //本地开发代理跨域请求插件
+// const proxy = createProxyMiddleware(['/api'], {
+//   target: 'https://xxx.yyy.com',  //后端接口域名
+//   changeOrigin: true,
+//   pathRewrite: {
+//     '/api': '' //重写地址，配合接口地址定义
+//   }
+// }) //本地代理配置
 function server() {
   browserSync.init({
     notify: false,
     port: 9000,
     server: {
       baseDir: "./src",
-      middleware: [proxy]  //配置代理
+      // middleware: [proxy]  //配置代理
     }
   })
   watch("src/**/*.css", watch_css);  //动态监听css变化

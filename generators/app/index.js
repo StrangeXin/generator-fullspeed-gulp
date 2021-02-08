@@ -13,7 +13,7 @@ module.exports = class extends Generator {
     const prompts = [
       {
         type: 'confirm',
-        name: 'someAnswer',
+        name: 'install',
         message: 'Would you like to enable this option?',
         default: true
       }
@@ -27,12 +27,14 @@ module.exports = class extends Generator {
 
   writing() {
     this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+      this.templatePath('**'),
+      this.destinationPath('./')
     );
   }
 
   install() {
-    this.installDependencies();
+    this.installDependencies({
+      bower: false
+    });
   }
 };
