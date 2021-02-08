@@ -1,0 +1,34 @@
+{
+  "name": "fullspeed-gulp",
+  "version": "1.0.0",
+  "description": "gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp server",
+    "build": "gulp",
+    "ftp": "gulp ftp"
+  },
+  "author": "hexin",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
+    "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-csso": "^4.0.1",
+    "gulp-filter": "^6.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-load-plugins": "^2.0.6",
+    "gulp-preprocess": "^3.0.3",
+    "gulp-rev-all": "^2.0.3",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "http-proxy-middleware": "^1.0.6",
+    "vinyl-ftp": "^0.6.1"
+  }
+}
