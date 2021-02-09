@@ -7,7 +7,7 @@ body {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
-  color:#000;
+  color: #000;
   margin: 0;
   padding: 0;
 }
@@ -21,7 +21,6 @@ body {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -37,22 +36,23 @@ body {
   align-items: center;
 }
 
-.fadeInUp{
-  animation-name:fadeInUp;
+.fadeInUp {
+  animation-name: fadeInUp;
 }
 
-.icon{
+.icon {
   display: block;
   margin: 0 auto;
-  animation:fadeInUp 0.3s linear both;
+  animation: fadeInUp 0.3s linear both;
 }
 
-@keyframes fadeInUp{
-  0%{opacity:0;
-      transform:translateY(20px)
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px)
   }
-  100%{
-      opacity:1;
-      transform:translateY(0)
+  100% {
+    opacity: 1;
+    transform: translateY(0)
   }
 }

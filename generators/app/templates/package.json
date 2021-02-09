@@ -1,6 +1,6 @@
 {
   "name": "fullspeed-gulp",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "gulp",
   "main": "index.js",
   "scripts": {
