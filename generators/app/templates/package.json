@@ -25,6 +25,7 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-load-plugins": "^2.0.6",
     "gulp-preprocess": "^3.0.3",
+    "gulp-px2rem-plugin": "^0.4.0",
     "gulp-rev-all": "^2.0.3",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",

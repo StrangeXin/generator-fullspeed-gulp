@@ -6,6 +6,7 @@ const gutil = require('gulp-util');
 const ftp = require('vinyl-ftp');
 const browserSync = require('browser-sync').create(); //多设备实时浏览器同步更新服务
 const reload = browserSync.reload; //刷新
+const px2rem = require('gulp-px2rem-plugin');
 
 //清空目录
 function del_dist() {
@@ -24,18 +25,23 @@ const condition = function (f) {
 function build() {
   const jsFilter = plugins.filter("**/*.js", { restore: true });  //js过滤
   const cssFilter = plugins.filter("**/*.css", { restore: true });  //css过滤
+  const htmlFilter = plugins.filter("**/*.html", { restore: true });  //html过滤
 
   return src(["src/**"])
-    .pipe(plugins.preprocess({ context: { NODE_ENV: "production" } }))  //自定义环境变量，用于打包过程中条件判断处理
     .pipe(plugins.imagemin())  //图片压缩
     .pipe(jsFilter)
+    .pipe(plugins.preprocess({ context: { NODE_ENV: "production"} }))  //自定义环境变量，用于打包过程中条件判断处理
     .pipe(plugins.babel({ presets: ["@babel/env"], plugins: [] }))  //es6转es5
     .pipe(plugins.if(condition, plugins.uglify()))  //js压缩
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe(plugins.if(condition, plugins.autoprefixer()))  //css自动添加前缀
     .pipe(plugins.if(condition, plugins.csso({ restructure: false })))  //压缩css，不重构
+    .pipe(plugins.if(condition, px2rem({'width_design': 750,'pieces':7.5,'ignore_px':[1]})))  //将px转化为rem,1px不转换
     .pipe(cssFilter.restore)
+    .pipe(htmlFilter)
+    .pipe(plugins.preprocess({ context: { NODE_ENV: "production"} }))  //自定义环境变量，用于打包过程中条件判断处理
+    .pipe(htmlFilter.restore)
     .pipe(plugins.if(condition, revAll.revision({ dontRenameFile: [".html"], dontUpdateReference: [".html"] }))) //不给html本身加hash,不处理js里面的html引入
     .pipe(dest('dist'));
 }
